@@ -6,3 +6,5 @@
 *.blend2
 __pycache__/
 .DS_Store
+.venv/
+assets/3d/*-frames/

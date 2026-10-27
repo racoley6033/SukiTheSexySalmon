@@ -1,0 +1,12 @@
+{
+  "frameWidth": 512,
+  "frameHeight": 512,
+  "columns": 8,
+  "frames": 48,
+  "fps": 24,
+  "clips": [
+    "idle",
+    "wave",
+    "dance"
+  ]
+}

@@ -1,0 +1,16 @@
+name: Validate mascot kit
+on: [push, pull_request]
+permissions:
+  contents: read
+jobs:
+  assets:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install 'Pillow>=11,<14'
+      - run: sudo apt-get update && sudo apt-get install -y ffmpeg
+      - run: python -m py_compile tools/export_2d.py tools/validate_assets.py 3d-blender/export_suki.py
+      - run: python tools/validate_assets.py
