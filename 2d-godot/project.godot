@@ -1,0 +1,12 @@
+config_version=5
+
+[application]
+config/name="Suki the Sexy Salmon - 2D"
+run/main_scene="res://Main.tscn"
+
+[dotnet]
+project/assembly_name="SukiTheSexySalmon2D"
+
+[rendering]
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
