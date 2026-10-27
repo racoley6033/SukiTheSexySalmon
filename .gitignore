@@ -1,0 +1,8 @@
+.godot/
+.mono/
+[Bb]in/
+[Oo]bj/
+*.blend1
+*.blend2
+__pycache__/
+.DS_Store
