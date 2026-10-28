@@ -1,4 +1,4 @@
-# Sally project roadmap
+# Suki project roadmap
 
 ## Current reference-based kit
 

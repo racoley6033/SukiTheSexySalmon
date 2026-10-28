@@ -21,16 +21,16 @@ export async function downloadExpression(canvas, expression) {
   const blob = await new Promise(resolve => canvas.toBlob(resolve, 'image/png'));
   if (!blob) throw new Error('Could not encode the expression PNG.');
   const url = URL.createObjectURL(blob), anchor = document.createElement('a');
-  anchor.href = url; anchor.download = `sally-${expression}-illustrated.png`;
+  anchor.href = url; anchor.download = `suki-${expression}-illustrated.png`;
   anchor.click(); setTimeout(() => URL.revokeObjectURL(url), 1000);
 }
 export async function mountAtlas(container) {
-  const image = new Image(); image.src = 'assets/artwork/sally-expressions-atlas.png';
+  const image = new Image(); image.src = 'assets/artwork/suki-expressions-atlas.png';
   await image.decode();
   for (const expression of EXPRESSIONS) {
     const article = document.createElement('article');
     const canvas = drawExpression(image, expression); canvas.style.width = '100%';
-    canvas.setAttribute('role', 'img'); canvas.setAttribute('aria-label', `Illustrated Sally ${expression}`);
+    canvas.setAttribute('role', 'img'); canvas.setAttribute('aria-label', `Illustrated Suki ${expression}`);
     const heading = document.createElement('h3'); heading.textContent = expression;
     const button = document.createElement('button'); button.textContent = 'Download transparent PNG';
     button.addEventListener('click', () => downloadExpression(canvas, expression).catch(error => {

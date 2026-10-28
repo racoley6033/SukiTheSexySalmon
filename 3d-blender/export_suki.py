@@ -1,4 +1,4 @@
-"""Blender 4.3+: build Sally, export expression GLBs and a transparent render.
+"""Blender 4.3+: build Suki, export expression GLBs and a transparent render.
 blender --background --python 3d-blender/export_suki.py -- --render
 """
 import argparse, json, math, random, sys
@@ -21,7 +21,7 @@ def build(expression):
     for name in ('nori','salmon','sauce','jalapeno'):
         bs=palette[name].node_tree.nodes.get('Principled BSDF'); bs.inputs['Roughness'].default_value=.23 if name!='sauce' else .13
         bs.inputs['Coat Weight'].default_value=.25
-    root=bpy.data.objects.new('Sally_root',None); bpy.context.collection.objects.link(root)
+    root=bpy.data.objects.new('Suki_root',None); bpy.context.collection.objects.link(root)
     def ball(name,loc,scale,mat,parent=root):
         bpy.ops.mesh.primitive_uv_sphere_add(segments=24,ring_count=16,location=loc)
         o=bpy.context.object; o.name=name; o.scale=scale; o.data.materials.append(palette[mat]); o.parent=parent
@@ -35,7 +35,7 @@ def build(expression):
         # Mesh conversion makes facial strokes portable in glTF.
         bpy.ops.object.select_all(action='DESELECT'); o.select_set(True); bpy.context.view_layer.objects.active=o; bpy.ops.object.convert(target='MESH')
         return bpy.context.object
-    # Sally: round salmon bob around a separate peach face, never a fish block.
+    # Suki: round salmon bob around a separate peach face, never a fish block.
     ball('Salmon bob volume',(0,.12,2.20),(1.13,.76,1.01),'salmon')
     ball('Peach face',(0,-.49,2.04),(.91,.48,.75),'skin')
     ball('Rice collar core',(0,.04,1.30),(.89,.57,.26),'rice')
@@ -201,5 +201,5 @@ def main():
             scene.render.filepath=str(OUT/f'suki-{e}.png'); bpy.ops.render.render(write_still=True)
         if a.animation:
             scene.render.filepath=str(OUT/f'{e}-frames/frame-'); bpy.ops.render.render(animation=True)
-    print('Sally exports complete.')
+    print('Suki exports complete.')
 if __name__=='__main__': main()

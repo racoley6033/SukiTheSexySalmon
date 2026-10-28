@@ -7,7 +7,7 @@ ROOT = Path(__file__).resolve().parents[1]
 EXPRESSIONS = tuple(json.loads((ROOT/'character.json').read_text())['expressions'])
 
 def svg(expression='happy', phase=0, motion='idle'):
-    """Layered vector interpretation of the supplied Sally character sheet."""
+    """Layered vector interpretation of the supplied Suki character sheet."""
     if expression not in EXPRESSIONS: raise ValueError(expression)
     bob=5*math.sin(phase*math.tau)
     tilt=5*math.sin(phase*math.tau) if motion=='dance' else 0
@@ -37,7 +37,7 @@ def svg(expression='happy', phase=0, motion='idle'):
                 rice.append(f'<ellipse cx="{x}" cy="{y}" rx="12" ry="9" transform="rotate({(j*31+row*19)%70-35} {x} {y})" fill="url(#rice)" stroke="#e6ceab" stroke-width=".7"/>')
     marbling=''.join(f'<path d="M{150+i*34} 172 Q{187+i*26} 149 {220+i*22} 141"/>' for i in range(5))
     brows='<path d="M188 202 l34 9 M291 210 l32 -12" stroke="#a54420" stroke-width="5" fill="none"/>' if expression=='angry' else '<path d="M187 204 Q200 190 216 199 M294 199 Q310 189 322 204" stroke="#b64e25" stroke-width="5" stroke-linecap="round" fill="none"/>'
-    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Sally {expression}">
+    return f'''<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512" role="img" aria-label="Suki {expression}">
 <defs>
 <radialGradient id="salmon" cx="35%" cy="20%" r="85%"><stop stop-color="#ffb365"/><stop offset=".55" stop-color="#ff7838"/><stop offset="1" stop-color="#d74724"/></radialGradient>
 <radialGradient id="skin" cx="45%" cy="35%" r="70%"><stop stop-color="#ffe4b2"/><stop offset=".7" stop-color="#ffc184"/><stop offset="1" stop-color="#f78e61"/></radialGradient>

@@ -1,22 +1,22 @@
-# Sally the Sexy Salmon — character kit
+# Suki the Sexy Salmon — character kit
 
-Based on the **Sally the Sexy Salmon Character Sheet** supplied by the user: a round chibi mascot with salmon-slice bob hair, a separate peach face, large green eyes with lashes, a broad perpendicular avocado fringe, seeded jalapeño ring with one sauce dot, rice collar, glossy black gloves and chunky boots.
+Based on the character sheet supplied by the user (originally titled **Sally the Sexy Salmon Character Sheet**): a round chibi mascot with salmon-slice bob hair, a separate peach face, large green eyes with lashes, a broad perpendicular avocado fringe, seeded jalapeño ring with one sauce dot, rice collar, glossy black gloves and chunky boots.
 
-![Sally illustrated menu cutout](assets/artwork/sally-menu-hero.png)
+![Suki illustrated menu cutout](assets/artwork/suki-menu-hero.png)
 
 ## Choose the right asset
 
 | Use | Files | What you can edit |
 | --- | --- | --- |
-| Glossy menu illustration | `assets/artwork/sally-menu-hero.png` | Transparent raster artwork; place in menus, layouts or video editors |
-| Glossy expressions | `assets/artwork/sally-expressions-atlas.png` | Six-cell raster artwork atlas; the local gallery exports individual PNG cells |
+| Glossy menu illustration | `assets/artwork/suki-menu-hero.png` | Transparent raster artwork; place in menus, layouts or video editors |
+| Glossy expressions | `assets/artwork/suki-expressions-atlas.png` | Six-cell raster artwork atlas; the local gallery exports individual PNG cells |
 | Editable 2D expressions | `assets/2d/*.svg`, `*.png` | Named SVG layers, gradients, shapes, colors and facial features |
 | Editable 3D mascot | `assets/3d/suki-happy.blend`, `suki-*.glb` | Mesh parts, materials and object animation controls |
 | Social animations | `assets/social/` | Idle, wave and dance WebP, RGBA sprite sheets and H.264 MP4 |
 
 **The glossy raster artwork is not a render of the downloadable mesh.** The vector and procedural 3D versions are simpler interpretations of the supplied design. They are suitable starting assets for editing and animation, rather than an exact sculpt or trace of the original illustration. The original character sheet remains the visual source of truth.
 
-The character is called **Sally**. Existing repository, generator and `suki-*` filenames remain for compatibility. `character.json` records her name, expression list and design requirements.
+The character is called **Suki**. All current artwork downloads and model controls use the Suki name. `character.json` records her name, expression list and design requirements.
 
 ## Expressions and formats
 
@@ -62,7 +62,7 @@ The Python/Blender generators reproduce the editable vectors, mesh models and so
 
 Edit `tools/export_2d.py` for vector geometry and motion, `3d-blender/export_suki.py` for mesh geometry and materials, and `character.json` for expression ordering. Keep the reference's round head, peach face, green eyes, lashes, salmon curls and full costume when making changes.
 
-In Blender, edit `Sally_root` for bobbing and `Wave_pivot` for the right hand. The 48-frame timeline exports bob and wave as separate glTF animation clips; how clips are combined depends on the importing application.
+In Blender, edit `Suki_root` for bobbing and `Wave_pivot` for the right hand. The 48-frame timeline exports bob and wave as separate glTF animation clips; how clips are combined depends on the importing application.
 
 ```sh
 blender --background --python 3d-blender/export_suki.py -- --expression wink --render
@@ -71,7 +71,7 @@ blender --background --python 3d-blender/export_suki.py -- --expression happy --
 
 `--animation` writes a transparent 48-frame 3D PNG sequence for compositing in a video editor. Rendering all expressions or animation frames can take several minutes. The generator clears the current Blender document: run it in background as shown or in a new empty document. Matching outputs under `assets/` are overwritten, so save custom work elsewhere.
 
-The original `2d-godot/` and `3d-blender/suki_blockout.py` are legacy prototypes and do not represent Sally's reference design. The current kit runs independently of Godot/.NET.
+The original `2d-godot/` and `3d-blender/suki_blockout.py` are legacy prototypes and do not represent Suki's reference design. The current kit runs independently of Godot/.NET.
 
 ## Validate
 

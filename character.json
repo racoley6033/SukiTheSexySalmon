@@ -1,14 +1,37 @@
 {
-  "name": "Sally the Sexy Salmon",
-  "reference": "Sally the Sexy Salmon Character Sheet.png supplied in chat on 2026-10-28",
-  "expressions": ["happy", "wink", "flirty", "excited", "sassy", "surprised", "love", "sad", "angry", "sleepy"],
-  "referenceExpressions": ["happy", "wink", "flirty", "excited", "sassy", "surprised"],
+  "name": "Suki the Sexy Salmon",
+  "reference": "Originally titled Sally the Sexy Salmon Character Sheet.png, supplied in chat on 2026-10-28; character renamed Suki",
+  "expressions": [
+    "happy",
+    "wink",
+    "flirty",
+    "excited",
+    "sassy",
+    "surprised",
+    "love",
+    "sad",
+    "angry",
+    "sleepy"
+  ],
+  "referenceExpressions": [
+    "happy",
+    "wink",
+    "flirty",
+    "excited",
+    "sassy",
+    "surprised"
+  ],
   "design": {
     "silhouette": "round chibi head framed by layered salmon-slice bob hair; peach face; rice collar",
     "eyes": "large green irises, black lashes, white highlights",
     "garnish": "broad perpendicular avocado slice ending at forehead; jalapeno ring with seeds and one red sauce dot",
     "limbs": "slim black nori arms and legs, shiny gloves and chunky boots",
-    "avoid": ["rectangular head", "eyes directly on fish block", "lower green band", "plain stick hands or feet"]
+    "avoid": [
+      "rectangular head",
+      "eyes directly on fish block",
+      "lower green band",
+      "plain stick hands or feet"
+    ]
   },
   "legacyFilenamePrefix": "suki",
   "version": 2

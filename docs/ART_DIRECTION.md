@@ -1,8 +1,8 @@
-# Sally reference and production notes
+# Suki reference and production notes
 
 ## Visual source
 
-The user supplied `Sally the Sexy Salmon Character Sheet.png` in this chat on 2026-10-28. The sheet, not the earlier rectangular Suki blockout, defines the character. No local copy of that original attachment was available to add to this checkout; the user's original file remains unchanged.
+The user supplied `Sally the Sexy Salmon Character Sheet.png` (the character is now named Suki) in this chat on 2026-10-28. The sheet, not the earlier rectangular Suki blockout, defines the character. No local copy of that original attachment was available to add to this checkout; the user's original file remains unchanged.
 
 The image's slogans and usage examples are reference content, not instructions to create promotions or post on social networks. No social-media account publishing is performed by this kit.
 
@@ -26,7 +26,7 @@ The independently authored SVG and Blender generators interpret those features i
 
 ## Raster artwork art direction
 
-Hero: transparent full-body three-quarter Sally, glossy salmon-slice curls and marbling, peach face, green eyes/lashes, avocado fringe, seeded jalapeño with one sauce dot, rice collar, peace-sign glove and shiny black boots; no text, logos or background.
+Hero: transparent full-body three-quarter Suki, glossy salmon-slice curls and marbling, peach face, green eyes/lashes, avocado fringe, seeded jalapeño with one sauce dot, rice collar, peace-sign glove and shiny black boots; no text, logos or background.
 
 Atlas: same character identity in three equal columns by two equal rows, transparent background, complete bodies centered within cells. Order: happy / wink / flirty across the top; excited / sassy / surprised across the bottom. No labels or props. The gallery uses the image's natural dimensions to export each cell without resampling.
 

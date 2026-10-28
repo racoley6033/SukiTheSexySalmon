@@ -24,7 +24,7 @@ for e in EXPRESSIONS:
     doc=json.loads(data[20:20+chunklen]); assert doc.get('meshes') and doc.get('materials') and doc.get('animations'),e
     assert sum(len(a['channels']) for a in doc['animations'])>=2,e
     names={n.get('name','') for n in doc['nodes']}
-    assert {'Peach face','Avocado forehead slice','Jalapeno seeded ring','Peace glove palm','Sally_root'} <= names,e
+    assert {'Peach face','Avocado forehead slice','Jalapeno seeded ring','Peace glove palm','Suki_root'} <= names,e
     assert any(n.startswith('Rice grain') for n in names),e
     assert any(n.startswith('Boot toe') for n in names),e
     assert not any(n in ('Salmon topping','Rice cushion') for n in names),e
@@ -38,9 +38,9 @@ for clip in ('idle','wave','dance'):
         file=ROOT/f'assets/social/{clip}-{fmt}.mp4'
         doc=json.loads(subprocess.check_output(['ffprobe','-v','error','-show_streams','-of','json',str(file)]))
         stream=doc['streams'][0]; assert (stream['width'],stream['height'])==dim and int(stream['nb_frames'])==48,file
-with Image.open(ROOT/'assets/artwork/sally-menu-hero.png') as im:
+with Image.open(ROOT/'assets/artwork/suki-menu-hero.png') as im:
     assert im.mode=='RGBA' and im.getextrema()[3][0]==0
-with Image.open(ROOT/'assets/artwork/sally-expressions-atlas.png') as im:
+with Image.open(ROOT/'assets/artwork/suki-expressions-atlas.png') as im:
     assert im.mode=='RGBA' and im.width%3==0 and im.height%2==0
     assert im.getextrema()[3][0]==0 and im.getextrema()[3][1]>=240
-print('PASS: ten Sally 2D/3D expressions, alpha images, animated GLBs, three loops and six social videos.')
+print('PASS: ten Suki 2D/3D expressions, alpha images, animated GLBs, three loops and six social videos.')
