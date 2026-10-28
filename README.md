@@ -1,28 +1,49 @@
-# Suki the Sexy Salmon — mascot production kit
+# Sally the Sexy Salmon — character kit
 
-Suki is a salmon nigiri character for Aquinos Sushi Bar: green eyes, black nori limbs, a short avocado fringe, jalapeño slice and one red hot-sauce dot. No lower-body green band.
+Based on the **Sally the Sexy Salmon Character Sheet** supplied by the user: a round chibi mascot with salmon-slice bob hair, a separate peach face, large green eyes with lashes, a broad perpendicular avocado fringe, seeded jalapeño ring with one sauce dot, rice collar, glossy black gloves and chunky boots.
 
-![Expression collection](assets/2d/expression-sheet.png)
+![Sally illustrated menu cutout](assets/artwork/sally-menu-hero.png)
 
-## Ready-to-use assets
+## Choose the right asset
 
-- **Eight expressions:** happy, wink, excited, love, surprised, sad, angry and sleepy.
-- `assets/2d/`: layered, editable SVGs and 1080 × 1080 transparent PNGs for menus and graphics.
-- `assets/3d/`: eight animated GLB models, transparent 1080px renders and an editable `suki-happy.blend` scene. Models have named parts, materials and animated object controls for bobbing and waving. Expressions are separate models, not facial blend shapes or a skinned skeleton.
-- `assets/social/`: idle, wave and dance loops as transparent animated WebP, transparent sprite sheets, and H.264 MP4 in square (1080 × 1080) and portrait (1080 × 1920) formats. MP4s have a cream background. Each loop is 48 frames at 24fps (2 seconds); WebP rounds timing to 42ms/frame.
-- `preview.html`: local gallery with asset download links.
+| Use | Files | What you can edit |
+| --- | --- | --- |
+| Glossy menu illustration | `assets/artwork/sally-menu-hero.png` | Transparent raster artwork; place in menus, layouts or video editors |
+| Glossy expressions | `assets/artwork/sally-expressions-atlas.png` | Six-cell raster artwork atlas; the local gallery exports individual PNG cells |
+| Editable 2D expressions | `assets/2d/*.svg`, `*.png` | Named SVG layers, gradients, shapes, colors and facial features |
+| Editable 3D mascot | `assets/3d/suki-happy.blend`, `suki-*.glb` | Mesh parts, materials and object animation controls |
+| Social animations | `assets/social/` | Idle, wave and dance WebP, RGBA sprite sheets and H.264 MP4 |
+
+**The glossy raster artwork is not a render of the downloadable mesh.** The vector and procedural 3D versions are simpler interpretations of the supplied design. They are suitable starting assets for editing and animation, rather than an exact sculpt or trace of the original illustration. The original character sheet remains the visual source of truth.
+
+The character is called **Sally**. Existing repository, generator and `suki-*` filenames remain for compatibility. `character.json` records her name, expression list and design requirements.
+
+## Expressions and formats
+
+The reference's six expressions are **happy, wink, flirty, excited, sassy and surprised**. Vector and 3D packs add love, sad, angry and sleepy for ten expressions total.
+
+- SVG: layered vector, scalable for menus and print. Groups include `salmon-bob-locks`, `peach-face`, `rice-collar`, `avocado-forehead`, `jalapeno-hat`, `left-arm-glove`, `right-arm-glove` and `boots`.
+- PNG: 1080 × 1080, transparent, for each vector expression and actual 3D render.
+- GLB: one animated model per expression, with bob and wave clips. Named parts are editable; this is object animation, not a skinned skeleton or facial blend-shape system.
+- BLEND: editable happy-expression scene, camera, lights and controls. Use `--expression` to save a scene for another expression.
+- WebP: transparent animated loops, 48 frames, approximately two seconds (42ms per frame).
+- Sprite sheets: 8 columns × 6 rows, 512px RGBA frames, 24fps; layout in `assets/social/sprites.json`.
+- MP4: 48 frames at 24fps; square 1080 × 1080 and vertical 1080 × 1920, cream background. MP4 does not preserve transparency.
 
 ## Run in Visual Studio Code
 
-Install **Python 3.11+**, **Blender 4.3+**, and **FFmpeg** with H.264 encoding. Make `python`, `blender` and `ffmpeg` available on PATH. On Windows enable “Add Python to PATH”; Blender and FFmpeg may need their installation folders added manually. VS Code edits and launches the code; Blender performs 3D generation.
-
-Open this repository folder in VS Code. In its terminal:
+Install **Python 3.11+**, **Blender 4.3+** and **FFmpeg** with H.264 support. Make `python`, `blender` and `ffmpeg` available on PATH. Open this repository folder in VS Code.
 
 ```sh
 python -m venv .venv
 ```
 
-Activate with `source .venv/bin/activate` (macOS/Linux), or `.venv\Scripts\Activate.ps1` (Windows PowerShell). Select that interpreter in VS Code, then:
+Activate the environment:
+
+- macOS/Linux: `source .venv/bin/activate`
+- Windows PowerShell: `.venv\Scripts\Activate.ps1`
+
+Select that Python interpreter in VS Code, then run:
 
 ```sh
 python -m pip install -r requirements.txt
@@ -31,32 +52,34 @@ blender --background --python 3d-blender/export_suki.py -- --render
 python -m http.server 8000
 ```
 
-Open http://localhost:8000/preview.html. Use **Terminal → Run Task** for the included export and preview tasks. If Blender is not on PATH, replace `blender` with its full executable path in `.vscode/tasks.json`.
+Open [the local gallery](http://localhost:8000/preview.html). It displays the glossy artwork, editable vectors, actual model renders and animation download links. It can export any of the six glossy atlas cells as a transparent PNG. You can also run the included tasks with **Terminal → Run Task** in VS Code.
 
-CairoSVG requires the native Cairo library. On macOS: `brew install cairo`; on Debian/Ubuntu: `sudo apt install libcairo2`; on Windows install Cairo following [CairoSVG's installation guide](https://cairosvg.org/documentation/). FFmpeg is needed only with `--video`; omit that flag for PNG/SVG/WebP exports.
+CairoSVG needs native Cairo: `brew install cairo` on macOS, `sudo apt install libcairo2` on Debian/Ubuntu, or follow [CairoSVG's Windows installation instructions](https://cairosvg.org/documentation/). If Blender is not on PATH, put its full executable path in `.vscode/tasks.json`. Omit `--video` if FFmpeg is not installed. FFprobe, distributed with FFmpeg, is required for validation.
 
-## Customize and animate
+The Python/Blender generators reproduce the editable vectors, mesh models and social animations. The AI-assisted glossy raster illustrations are included as static art assets; running those generators does not reproduce them. Their art direction is recorded in `docs/ART_DIRECTION.md`.
 
-Edit colors, shapes and expressions in `tools/export_2d.py` and `3d-blender/export_suki.py`. SVG groups are named `nori-limbs`, `rice`, `salmon`, `garnish` and `face`; edit them in Inkscape, Illustrator or a text editor. Blender objects are named by character part. Edit `Suki_root` and `Wave_pivot` keyframes in Blender's Dope Sheet. GLB files carry the bob and wave animations; imported animation clip handling depends on the destination app.
+## Customize
 
-Export one expression, or a transparent 3D PNG sequence:
+Edit `tools/export_2d.py` for vector geometry and motion, `3d-blender/export_suki.py` for mesh geometry and materials, and `character.json` for expression ordering. Keep the reference's round head, peach face, green eyes, lashes, salmon curls and full costume when making changes.
+
+In Blender, edit `Sally_root` for bobbing and `Wave_pivot` for the right hand. The 48-frame timeline exports bob and wave as separate glTF animation clips; how clips are combined depends on the importing application.
 
 ```sh
 blender --background --python 3d-blender/export_suki.py -- --expression wink --render
 blender --background --python 3d-blender/export_suki.py -- --expression happy --animation
 ```
 
-The generator clears the current Blender scene. Run it in background as shown, or in a new empty Blender document. Outputs overwrite matching files under `assets/`; keep custom work elsewhere. `--animation` renders 48 frames per selected expression and can take several minutes. For social video, composite the sequence over your preferred background in a video editor. SVG is the best menu/print source; PNG/WebP preserve alpha, MP4 does not. Keep graphics inside each platform's current safe area when adding captions.
+`--animation` writes a transparent 48-frame 3D PNG sequence for compositing in a video editor. Rendering all expressions or animation frames can take several minutes. The generator clears the current Blender document: run it in background as shown or in a new empty document. Matching outputs under `assets/` are overwritten, so save custom work elsewhere.
 
-The original `2d-godot/` prototype and `3d-blender/suki_blockout.py` remain available as development references. The production kit above runs independently of Godot/.NET.
+The original `2d-godot/` and `3d-blender/suki_blockout.py` are legacy prototypes and do not represent Sally's reference design. The current kit runs independently of Godot/.NET.
 
-## Verification
+## Validate
 
 ```sh
 python tools/validate_assets.py
 ```
 
-GitHub Actions also runs this validation on pushes and pull requests. This validates expression coverage, transparent image dimensions, animation frames, GLB headers and embedded animation channels, and social video resolution/frame counts using FFprobe.
+Checks all ten expressions, required vector layers and model parts, transparent PNG dimensions, GLB headers and animation channels, WebP frames, glossy artwork alpha and all six MP4 resolutions/frame counts. GitHub Actions runs the same asset checks on pushes and pull requests. These are technical checks; visual fidelity still requires comparison with the supplied sheet.
 
 ## Rights
 

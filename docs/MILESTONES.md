@@ -1,20 +1,19 @@
-# Suki project roadmap
+# Sally project roadmap
 
-## Delivered in mascot kit v1
+## Current reference-based kit
 
-- [x] Eight matching named expressions in 2D and 3D
-- [x] Layered SVG and transparent 1080px PNG expression pack
-- [x] Salmon marbling, textured rice, short avocado fringe, jalapeño ring and sauce dot
-- [x] Editable Blender model with named parts and animated object controls
-- [x] Animated GLB export for every expression
-- [x] Idle, wave and dance 2D loops, transparent sprite sheets and animated WebP
-- [x] Square and vertical H.264 video exports
-- [x] VS Code tasks, local asset gallery, documented regeneration and asset validation
+- [x] Reference identity documented in `character.json` and `docs/ART_DIRECTION.md`
+- [x] Round salmon bob, separate peach face, lashes, rice collar, gloves and boots in editable 2D/3D geometry
+- [x] Six reference expressions plus four bonus expressions in SVG/PNG and animated GLB
+- [x] Glossy menu cutout and six-expression raster artwork atlas
+- [x] Idle, wave and dance 2D loops; transparent WebP and sprite sheets; square and portrait MP4
+- [x] VS Code tasks, gallery, exports and technical validation
 
-## Future extensions
+## Further production work
 
-- [ ] Skinned skeleton and facial blend shapes for interactive expression mixing
+- [ ] Artist sculpt/retopology for closer matching to the illustrated reference
+- [ ] Skinned skeleton and facial blend shapes
 - [ ] Walk cycle and lip sync
-- [ ] Integrate production SVG/PNG layers with the original Godot/C# prototype
-- [ ] Restaurant-approved typography and final menu layouts
-- [ ] 3D vertical campaign compositions with text and product footage
+- [ ] Integrate current layers with the legacy Godot prototype
+- [ ] Restaurant-approved final typography and menu layouts
+- [ ] 3D social campaign compositions with text and product footage
