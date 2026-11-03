@@ -4,6 +4,16 @@ Based on the character sheet supplied by the user (originally titled **Sally the
 
 ![Suki illustrated menu cutout](assets/artwork/suki-menu-hero.png)
 
+## Illustrated 2D animation studio
+
+Open `studio.html` through the local HTTP server for the detailed artwork edition. It uses the included glossy atlas rather than drawing the simplified vector character. Choose six illustrated facial/hand poses and still, idle, bounce, dance or travel movement. Pause, scrub, change preview speed, mirror the sprite and select transparent, cream or green backgrounds.
+
+Download the current stage as PNG or a two-second animation sheet (8 × 6 cells, 512px, 24fps) with JSON metadata. Playback speed affects the preview only. Reduced-motion preferences disable automatic playback. No external services or build step are required.
+
+This is whole-sprite animation of existing illustrations. It does not reconstruct the exact supplied sheet in code, articulate individual limbs, create a true walk cycle or produce a new 3D sculpt. The remaining layered-rig work is tracked in issue #9; 3D fidelity and deformation requirements are in #4 and #5. The existing Suki name and filenames are preserved.
+
+Run motion/export-layout checks with `node --test web/motion.test.mjs`.
+
 ## Choose the right asset
 
 | Use | Files | What you can edit |
